@@ -26,7 +26,8 @@ class Fight():
                     print("{} has {} health remaining".format(
                         self.ork4e.name, self.ork4e.get_health))
             if self.victory == 1:
-                self.hero4e.take_damage(self.ork4e.attack())
+                self.hero4e.take_damage(
+                    self.ork4e.attack() * self.ork4e.berserk_factor)
                 if not self.hero4e.is_alive():
                     self.victory = 2
                     print("{} is Victorious".format(self.ork4e.name))
@@ -34,3 +35,4 @@ class Fight():
                     self.victory = 0
                     print("{} has {} health remaining".format(
                         self.hero4e.name, self.hero4e.get_health))
+        return self.victory

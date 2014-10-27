@@ -11,13 +11,9 @@ class EntityTest(unittest.TestCase):
     def test_if_weapon_equipped(self):
         self.assertEqual(False, self.my_entity.has_weapon())
 
-    # def test_if_weapon_crit(self):
-    #     self.my_entity.equip_weapon(self.my_axe)
-    #     self.assertEqual(self.my_entity.attack(), 30)
-
-
-
+    def test_if_weapon_crit(self):
+        self.my_entity.equip_weapon(self.my_axe)
+        self.assertEqual(self.my_entity.attack(), 30)
 
 if __name__ == '__main__':
     unittest.main()
-

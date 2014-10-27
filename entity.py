@@ -1,13 +1,10 @@
-from weapon import Weapon
-
-
 class Entity:
 
     def __init__(self, name, health):
         self.name = name
         self.health = health
         self._MAX_HEALTH = health
-        self.weapon = "default"
+        self.weapon = None
 
     def get_health(self):
         return self.health
@@ -34,20 +31,19 @@ class Entity:
             return True
 
     def has_weapon(self):
-        if self.weapon != "default":
+        if self.weapon is not None:
             return True
         else:
             return False
 
-    def equip_weapon(self, wep_name):
-        self.weapon = wep_name
+    def equip_weapon(self, weapon):
+        self.weapon = weapon
 
     def attack(self):
-        if self.weapon == "default":
+        print(self.weapon)
+        if self.weapon is None:
             return 0
         elif self.weapon.critical_hit():
-            return self.weapon.damage*2
+            return self.weapon.damage * 2
         else:
             return self.weapon.damage
-
-
